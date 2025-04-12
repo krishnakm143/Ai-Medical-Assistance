@@ -1,0 +1,56 @@
+// Chat message styles
+
+.ai-response-content {
+  // Add a little more space between lines for readability
+  line-height: 1.6;
+  
+  // Make links stand out in the AI response
+  a {
+    color: #4AC0F2;
+    text-decoration: underline;
+    
+    &:hover {
+      color: #76D4FF;
+    }
+  }
+  
+  // Style for numbered lists
+  ol, ul {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  // Add spacing between paragraphs
+  p + p {
+    margin-top: 0.75rem;
+  }
+  
+  // Style for tips and recommendations
+  strong {
+    color: #5CE5D5;
+  }
+}
+
+// Animation for new messages
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+// Apply animation to all message bubbles
+:host {
+  div.bg-gradient-to-r {
+    animation: fadeIn 0.3s ease-out;
+  }
+}
+
+// Quick reply buttons hover effect
+button.bg-cyan-700 {
+  transition: all 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+} 

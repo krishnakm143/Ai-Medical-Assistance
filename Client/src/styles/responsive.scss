@@ -1,0 +1,147 @@
+@use "sass:map";
+@use "sass:color";
+
+// Breakpoint variables
+$breakpoints: (
+  'xs': 320px,  // Extra small devices (phones)
+  'sm': 576px,  // Small devices (large phones)
+  'md': 768px,  // Medium devices (tablets)
+  'lg': 992px,  // Large devices (desktops)
+  'xl': 1200px, // Extra large devices (large desktops)
+  'xxl': 1400px // Extra extra large devices
+);
+
+// Media query mixins
+// Usage: @include respond-to('md') { ... }
+@mixin respond-to($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @error "Invalid breakpoint: #{$breakpoint}. Available breakpoints are: #{map.keys($breakpoints)}";
+  }
+}
+
+// Respond below a specific breakpoint
+// Usage: @include respond-below('md') { ... }
+@mixin respond-below($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $max-width: map.get($breakpoints, $breakpoint) - 1px;
+    @media (max-width: $max-width) {
+      @content;
+    }
+  } @else {
+    @error "Invalid breakpoint: #{$breakpoint}. Available breakpoints are: #{map.keys($breakpoints)}";
+  }
+}
+
+// Respond between two breakpoints
+// Usage: @include respond-between('sm', 'lg') { ... }
+@mixin respond-between($lower, $upper) {
+  @if map.has-key($breakpoints, $lower) and map.has-key($breakpoints, $upper) {
+    $min-width: map.get($breakpoints, $lower);
+    $max-width: map.get($breakpoints, $upper) - 1px;
+    @media (min-width: $min-width) and (max-width: $max-width) {
+      @content;
+    }
+  } @else {
+    @error "Invalid breakpoints: #{$lower}, #{$upper}. Available breakpoints are: #{map.keys($breakpoints)}";
+  }
+}
+
+// Orientation mixins
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+// Device-specific mixins
+@mixin mobile-only {
+  @include respond-below('md') {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @include respond-between('md', 'lg') {
+    @content;
+  }
+}
+
+@mixin desktop-only {
+  @include respond-to('lg') {
+    @content;
+  }
+}
+
+// Helper classes for common responsive patterns
+.hide-on-mobile {
+  @include mobile-only {
+    display: none !important;
+  }
+}
+
+.hide-on-tablet {
+  @include tablet-only {
+    display: none !important;
+  }
+}
+
+.hide-on-desktop {
+  @include desktop-only {
+    display: none !important;
+  }
+}
+
+// Container with responsive padding
+.responsive-container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  
+  @include respond-below('sm') {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  @include respond-to('sm') {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  
+  @include respond-to('lg') {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}
+
+// Flexbox utilities for responsive layouts
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  
+  &.responsive {
+    @include mobile-only {
+      flex-direction: column;
+    }
+  }
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  
+  &.responsive {
+    @include respond-to('md') {
+      flex-direction: row;
+    }
+  }
+} 

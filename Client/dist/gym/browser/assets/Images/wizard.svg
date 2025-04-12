@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Wizard's Hat -->
+  <path d="M200 50L260 160H140L200 50Z" fill="#6D28D9"/>
+  <path d="M140 160C140 160 180 140 200 140C220 140 260 160 260 160L250 180H150L140 160Z" fill="#7C3AED"/>
+  <path d="M150 180H250L240 200H160L150 180Z" fill="#6D28D9"/>
+  
+  <!-- Stars and Sparkles -->
+  <circle cx="180" cy="100" r="3" fill="#FCD34D"/>
+  <circle cx="220" cy="120" r="2" fill="#FCD34D"/>
+  <circle cx="200" cy="80" r="4" fill="#FCD34D"/>
+  <path d="M170 90L172 92L170 94L168 92L170 90Z" fill="#FCD34D"/>
+  <path d="M230 110L232 112L230 114L228 112L230 110Z" fill="#FCD34D"/>
+  
+  <!-- Wizard's Face -->
+  <path d="M160 200H240V280C240 300 220 320 200 320C180 320 160 300 160 280V200Z" fill="#FBD38D"/>
+  
+  <!-- Beard -->
+  <path d="M170 260C170 260 180 300 200 300C220 300 230 260 230 260V320C230 320 215 340 200 340C185 340 170 320 170 320V260Z" fill="#E5E7EB"/>
+  
+  <!-- Eyes -->
+  <circle cx="180" cy="240" r="5" fill="#1F2937"/>
+  <circle cx="220" cy="240" r="5" fill="#1F2937"/>
+  
+  <!-- Robe -->
+  <path d="M150 280V350H250V280C250 280 220 300 200 300C180 300 150 280 150 280Z" fill="#6D28D9"/>
+  
+  <!-- Staff -->
+  <rect x="280" y="150" width="10" height="200" transform="rotate(15 280 150)" fill="#92400E"/>
+  <circle cx="285" cy="150" r="10" transform="rotate(15 285 150)" fill="#FCD34D"/>
+  
+  <!-- Medical Cross -->
+  <rect x="100" y="200" width="40" height="10" fill="#EF4444"/>
+  <rect x="115" y="185" width="10" height="40" fill="#EF4444"/>
+  
+  <!-- Book -->
+  <path d="M80 220H120L130 260H70L80 220Z" fill="#1E40AF"/>
+  <rect x="75" y="220" width="50" height="5" fill="#60A5FA"/>
+</svg> 

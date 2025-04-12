@@ -1,0 +1,241 @@
+<!-- Mobile Menu Button -->
+<button *ngIf="isMobile" 
+        (click)="toggleSidebar()" 
+        class="fixed top-4 left-4 z-50 md:hidden p-2 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10">
+  <i class="fas text-white/70" [ngClass]="isSidebarOpen ? 'fa-times' : 'fa-bars'"></i>
+</button>
+
+<!-- Main Header -->
+<div class="fixed top-0 left-0 right-0 flex items-center justify-between px-4 py-3 bg-background/40 backdrop-blur-xl border-b border-white/10 z-40">
+  <!-- Left - Logo & Title -->
+  <div class="flex items-center space-x-4">
+    <div class="flex items-center">
+      <div class="relative size-10">
+        <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl blur animate-pulse"></div>
+        <div class="relative size-10 bg-white/5 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/10">
+          <i class="fas fa-heart text-cyan-400"></i>
+        </div>
+      </div>
+      <div class="ml-2">
+        <h1 class="text-sm font-medium bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">MediAssist</h1>
+        <p class="text-xs text-white/50">AI Health Platform</p>
+      </div>
+    </div>
+    <div class="h-8 w-px bg-white/10"></div>
+    <div class="flex items-center">
+      <div class="relative size-10">
+        <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl blur animate-pulse"></div>
+        <div class="relative size-10 bg-white/5 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/10">
+          <i class="fas fa-user-md text-cyan-400"></i>
+        </div>
+      </div>
+      <div class="ml-2">
+        <h1 class="text-sm font-medium text-white">Health Assistant</h1>
+        <p class="text-xs text-white/50">AI-powered medical guidance</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right - Emergency Button and Dashboard Link -->
+  <div class="flex items-center space-x-2">
+    <!-- <button (click)="toggleTheme()" class="relative overflow-hidden group px-3 py-1.5 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-lg flex items-center">
+      <span class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity"></span>
+      <i class="fas" [ngClass]="isDarkMode ? 'fa-sun' : 'fa-moon'"></i>
+    </button> -->
+    <button (click)="navigateToDashboard()" class="relative overflow-hidden group px-3 py-1.5 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-lg flex items-center space-x-2">
+      <span class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity"></span>
+      <i class="fas fa-home text-cyan-400"></i>
+      <span class="hidden sm:inline">Dashboard</span>
+    </button>
+    <button class="relative overflow-hidden group px-4 py-2 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-lg flex items-center space-x-2">
+      <span class="absolute inset-0 bg-gradient-to-r from-red-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity"></span>
+      <i class="fas fa-exclamation-circle text-red-400"></i>
+      <span>Emergency SOS</span>
+    </button>
+  </div>
+</div>
+
+<!-- Main Chat Container -->
+<div class="flex h-screen pt-[72px] bg-[#020817]">
+  <!-- Left Sidebar -->
+  <div [ngClass]="{'hidden': !isSidebarOpen && isMobile}"
+       class="w-[280px] border-r border-white/10 bg-white/5 backdrop-blur-lg">
+    <!-- User Profile -->
+    <div class="p-4">
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="relative size-12">
+          <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full blur animate-pulse"></div>
+          <div class="relative size-12 bg-white/5 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10">
+            <i class="fas fa-user text-cyan-400"></i>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center">
+            <h3 class="font-medium text-white">{{user.name || 'Guest'}}</h3>
+            <span *ngIf="user.isPremium" class="ml-2 px-2 py-0.5 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-white/10 text-white text-xs rounded-full">Premium</span>
+          </div>
+          <p class="text-xs text-white/50">Patient ID: {{user.id}}</p>
+        </div>
+      </div>
+
+      <!-- New Chat Button -->
+      <button (click)="startNewChat()" class="w-full mb-4 px-4 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 rounded-lg shadow-lg flex items-center justify-center">
+        <i class="fas fa-plus-circle mr-2"></i>
+        <span class="font-medium text-white">New Chat</span>
+      </button>
+
+      <!-- Chat History -->
+      <div class="space-y-2">
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-sm font-medium text-white/70">Recent Chats</h3>
+          <button *ngIf="chatHistory.length > 0" (click)="clearAllChats()" class="text-xs text-white/50 hover:text-white">
+            <i class="fas fa-trash-alt mr-1"></i> Clear All
+          </button>
+        </div>
+        <div class="max-h-[300px] overflow-y-auto pr-1 space-y-1.5 recent-chats-container">
+          <div *ngFor="let chat of chatHistory" 
+               class="flex items-center justify-between px-3 py-2 text-white/70 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 rounded-lg cursor-pointer transition-all">
+            <div class="flex items-center space-x-3 flex-1 min-w-0" (click)="loadChat(chat)">
+              <i class="fas fa-comment-medical text-cyan-400"></i>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium truncate">{{chat.title}}</p>
+                <p class="text-xs text-white/50">{{chat.date | time}}</p>
+              </div>
+            </div>
+            <button (click)="deleteChat(chat); $event.stopPropagation()" class="text-white/30 hover:text-white/80 p-1">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div *ngIf="chatHistory.length === 0" class="px-3 py-4 text-white/50 text-sm text-center bg-white/5 border border-white/10 rounded-lg">
+            No recent conversations
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions Menu -->
+    <div class="mt-4 px-4 space-y-2">
+      <!-- <button (click)="navigateToDashboard()" class="flex items-center space-x-3 w-full px-3 py-2 text-white/70 hover:bg-white/5 hover:border hover:border-white/10 rounded-lg">
+        <i class="fas fa-home"></i>
+        <span>Dashboard</span>
+      </button>  -->
+    
+      <div class="flex flex-col w-full px-3 py-2 text-white/70 hover:bg-white/5 hover:border hover:border-white/10 rounded-lg">
+        <!-- <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <i class="fas fa-cog"></i>
+            <span>AI Settings</span>
+          </div>
+        </div>
+        <div class="text-xs text-white/50 mt-2">
+          <p>AI health assistant is ready to provide personalized medical guidance.</p>
+        </div> -->
+       
+      </div>
+      
+
+    </div>
+
+    <!-- Logout -->
+    <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10">
+      <button class="flex items-center justify-center space-x-2 w-full px-3 py-2 text-white/70 hover:bg-white/5 hover:text-white hover:border hover:border-white/10 rounded-lg transition-colors">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </button>
+      
+      <button (click)="logout()" class="flex items-center justify-center space-x-2 w-full px-3 py-2 text-white/70 hover:bg-white/5 hover:text-white hover:border hover:border-white/10 rounded-lg transition-colors">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </button>
+      
+    </div>
+  </div>
+
+  <!-- Chat Area -->
+  <div class="flex-1 flex flex-col bg-[#020817]">
+    <!-- Messages Container -->
+    <div class="flex-1 overflow-y-auto p-4 space-y-6" #messageContainer>
+      <!-- Messages -->
+      <ng-container *ngFor="let message of messages">
+        <!-- Use the enhanced chat-message component -->
+        <app-chat-message 
+          [message]="message"
+          (suggestionClicked)="sendQuickReply($event)"
+          (messageEdited)="handleEditedMessage($event)">
+        </app-chat-message>
+      </ng-container>
+
+      <!-- Typing Indicator -->
+      <div *ngIf="isTyping" class="flex items-start space-x-3 max-w-3xl">
+        <div class="relative size-10">
+          <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl blur animate-pulse"></div>
+          <div class="relative size-10 bg-white/5 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/10">
+            <i class="fas fa-robot text-cyan-400"></i>
+          </div>
+        </div>
+        <div class="ml-3">
+          <div class="flex items-center mb-1">
+            <span class="font-medium text-white">Health Assistant</span>
+          </div>
+          <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 rounded-tl-none">
+            <div class="flex space-x-2">
+              <div class="size-2 bg-cyan-400 rounded-full animate-pulse"></div>
+              <div class="size-2 bg-cyan-400 rounded-full animate-pulse delay-100"></div>
+              <div class="size-2 bg-cyan-400 rounded-full animate-pulse delay-200"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="p-4 bg-white/5 backdrop-blur-lg border-t border-white/10">
+      <div class="max-w-4xl mx-auto flex items-end space-x-4">
+        <div class="flex-1 relative">
+          <textarea
+            [(ngModel)]="messageInput"
+            (keydown.enter)="$event.preventDefault(); sendMessage()"
+            rows="1"
+            autocomplete="off"
+            class="w-full pl-4 pr-12 py-3 bg-white/5 backdrop-blur-sm rounded-xl text-white border border-white/10 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 placeholder:text-white/30"
+            placeholder="Type your health question..."></textarea>
+          
+          <div class="absolute right-3 bottom-3 flex items-center space-x-2">
+            <button (click)="triggerFileUpload()" class="text-white/50 hover:text-white transition-colors">
+              <i class="fas fa-paperclip"></i>
+            </button>
+            <button (click)="toggleVoiceInput()" class="text-white/50 hover:text-white transition-colors">
+              <i class="fas" [ngClass]="{'fa-microphone': !isRecording, 'fa-stop': isRecording}"></i>
+            </button>
+          </div>
+        </div>
+        
+        <button (click)="sendMessage()" 
+                [disabled]="!messageInput.trim() || isTyping"
+                class="relative overflow-hidden group p-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-xl disabled:opacity-50">
+          <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></span>
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Access Actions -->
+    <!-- <div class="fixed bottom-28 right-6 flex flex-col space-y-2">
+      <button (click)="endConversation()" *ngIf="messages.length > 0" 
+              class="p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full hover:bg-white/10 transition-colors shadow-xl" 
+              title="End Conversation">
+        <i class="fas fa-check text-green-400 hover:text-green-300"></i>
+      </button>
+      <button (click)="chatService.clearChat()" class="p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full hover:bg-white/10 transition-colors shadow-xl" title="Clear Chat">
+        <i class="fas fa-trash text-white/70 hover:text-white"></i>
+      </button>
+    </div> -->
+  </div>
+</div>
+
+<!-- Hidden File Input -->
+<input type="file" 
+       #fileInput 
+       (change)="handleFileUpload($event)"
+       class="hidden"
+       accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/json">

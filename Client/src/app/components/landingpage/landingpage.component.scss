@@ -1,0 +1,118 @@
+/* Import responsive mixins */
+@use '../../../styles/responsive' as responsive;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add Lucide icons CSS */
+// @import 'lucide-angular/dist/lucide-angular.css';
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Responsive styles */
+.container {
+  @include responsive.mobile-only {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Hero section responsive */
+section {
+  @include responsive.mobile-only {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+h1 {
+  @include responsive.mobile-only {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+  
+  @include responsive.tablet-only {
+    font-size: 3.5rem;
+  }
+}
+
+h2 {
+  @include responsive.mobile-only {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+}
+
+/* Mobile menu styling */
+.mobile-menu-button {
+  display: none;
+  
+  @include responsive.mobile-only {
+    display: flex;
+  }
+}
+
+.mobile-menu {
+  @include responsive.respond-to('md') {
+    display: none;
+  }
+}
+
+/* Grid responsiveness */
+.grid {
+  @include responsive.mobile-only {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Footer responsiveness */
+footer .grid {
+  @include responsive.respond-below('lg') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  @include responsive.mobile-only {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* Chat demo responsive */
+.chat-demo {
+  @include responsive.mobile-only {
+    padding: 12px;
+  }
+}
+
+/* CTA section responsive */
+.cta-section {
+  @include responsive.mobile-only {
+    padding: 24px 16px;
+  }
+}
+
+/* Button responsiveness */
+button {
+  @include responsive.mobile-only {
+    width: 100%;
+  }
+}

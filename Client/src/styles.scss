@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@use './styles/responsive' as responsive;
+@import 'tailwind.css';
+
+/* Global typography */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Global custom variables */
+:root {
+  --primary-gradient: linear-gradient(to right, #22d3ee, #a855f7);
+}
+
+/* Global animations */
+@keyframes globalFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

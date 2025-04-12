@@ -1,0 +1,89 @@
+<!-- AI Message -->
+<div *ngIf="message.sender === 'ai'" class="flex w-full mb-5">
+  <div class="flex-shrink-0 h-10 w-10 rounded-full bg-cyan-600 flex items-center justify-center text-white shadow-md mr-3">
+    <i class="fas fa-robot"></i>
+  </div>
+  <div class="flex flex-col max-w-[80%]">
+    <div class="bg-gradient-to-r from-cyan-700 to-cyan-900 rounded-lg px-4 py-3 shadow-md">
+      <!-- File attachment if present -->
+      <div *ngIf="message.type === 'file'" class="flex items-center space-x-3 p-2 bg-white/20 rounded-lg mb-2">
+        <i class="fas fa-file-medical text-cyan-400"></i>
+        <span class="text-white/90">{{message.content.replace('Uploaded file: ', '')}}</span>
+        <button class="ml-auto text-white/70 hover:text-white">
+          <i class="fas fa-download"></i>
+        </button>
+      </div>
+      
+      <!-- Format AI responses with better readability -->
+      <div *ngIf="message.type !== 'file'" class="text-white whitespace-pre-line ai-response-content">
+        {{ formatAIResponse(message.content) }}
+      </div>
+    </div>
+    <div class="mt-1 text-xs text-gray-400">
+      {{ formatTime(message.timestamp) }}
+    </div>
+    
+    <!-- Quick reply suggestions -->
+    <div *ngIf="message.suggestions && message.suggestions.length > 0" class="flex flex-wrap gap-2 mt-2">
+      <button 
+        *ngFor="let suggestion of message.suggestions"
+        (click)="quickReply(suggestion)"
+        class="bg-cyan-700 hover:bg-cyan-600 text-white text-xs rounded-full px-3 py-1 transition-colors"
+      >
+        {{ suggestion }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- User Message -->
+<div *ngIf="message.sender === 'user'" class="flex w-full mb-5 justify-end">
+  <div class="flex flex-col items-end max-w-[80%]">
+    <div class="bg-gradient-to-r from-blue-700 to-indigo-800 rounded-lg px-4 py-3 text-white shadow-md relative group">
+      <!-- Edit button (only visible on hover) -->
+      <button *ngIf="!editMode && message.type !== 'file'" 
+              (click)="startEdit()" 
+              class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-white/70 hover:text-white">
+        <i class="fas fa-edit"></i>
+      </button>
+      
+      <!-- File attachment if present -->
+      <div *ngIf="message.type === 'file'" class="flex items-center space-x-3 p-2 bg-white/20 rounded-lg mb-2">
+        <i class="fas fa-file-medical text-indigo-400"></i>
+        <span class="text-white/90">{{message.content.replace('Uploaded file: ', '')}}</span>
+      </div>
+      
+      <!-- Edit Mode -->
+      <div *ngIf="editMode" class="flex flex-col">
+        <textarea [(ngModel)]="editedContent" 
+                  class="w-full bg-white/10 text-white border border-white/30 rounded p-2 mb-2"
+                  rows="3"></textarea>
+        <div class="flex justify-end space-x-2">
+          <button (click)="cancelEdit()" class="px-2 py-1 bg-white/10 hover:bg-white/20 rounded text-xs">
+            Cancel
+          </button>
+          <button (click)="saveEdit()" class="px-2 py-1 bg-cyan-600 hover:bg-cyan-500 rounded text-xs">
+            Save
+          </button>
+        </div>
+      </div>
+      
+      <!-- Normal Mode (display message) -->
+      <div *ngIf="!editMode && message.type !== 'file'" [innerHTML]="formatUserMessage(message.content)"></div>
+    </div>
+    <div class="mt-1 text-xs text-gray-400">
+      {{ formatTime(message.timestamp) }}
+      <span *ngIf="message.edited" class="ml-2 italic">(edited)</span>
+    </div>
+  </div>
+  <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-600 flex items-center justify-center text-white shadow-md ml-3">
+    <i class="fas fa-user"></i>
+  </div>
+</div>
+
+<!-- System Message -->
+<div *ngIf="message.sender === 'system'" class="flex justify-center w-full my-3">
+  <div class="bg-gray-700 rounded-lg px-4 py-2 text-gray-300 text-sm max-w-[80%] text-center">
+    {{ message.content }}
+  </div>
+</div> 

@@ -1,0 +1,293 @@
+<head><link href="https://cdn.jsdelivr.net/npm/lucide@0.22.0/dist/lucide.min.css" rel="stylesheet" />
+
+    </head>
+<div class="min-h-screen bg-[#020817] text-white overflow-hidden">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 z-0">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+        <div class="absolute top-0 left-0 right-0 h-[300px] bg-gradient-to-b from-primary/20 via-purple-500/10 to-transparent"></div>
+    </div>      
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto">
+            <div class="relative px-4 py-4">
+                <div class="absolute inset-0 bg-background/40 backdrop-blur-xl"></div>
+                <nav class="relative flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <div class="relative size-10">
+                            <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl blur animate-pulse"></div>
+                            <div class="relative size-10 bg-background/80 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/10">
+                                <!-- <i class="lucide lucide-bot size-6 text-cyan-400" ></i> -->
+                                <i-lucide [img]="bot" class="lucide lucide-bot size-6 text-cyan-400"></i-lucide>
+                            </div>
+                        </div>
+                        <span class="text-xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                            MedAI
+                        </span>
+                    </div>
+                    <div class="hidden md:flex items-center gap-8">
+                        <ng-container *ngFor="let item of navItems">
+                            <a [routerLink]="[item.toLowerCase()]" class="relative text-sm text-white/70 hover:text-white transition-colors group">
+                                {{item}}
+                                <span class="absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-cyan-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+                            </a>
+                        </ng-container>
+                    </div>
+                    <button class="mobile-menu-button md:hidden mr-2" (click)="toggleMobileMenu()">
+                        <i-lucide [img]="menu" class="size-6 text-white"></i-lucide>
+                    </button>
+                    <button class="relative overflow-hidden group bg-white/5 border border-white/10 hover:bg-white/10 text-white px-4 py-2 rounded-md hidden md:block">
+                        <span class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity"></span>
+                        Start Free Trial
+                    </button>
+                </nav>
+                <!-- Mobile Menu -->
+                <div class="mobile-menu" [ngClass]="{'hidden': !showMobileMenu}">
+                    <div class="absolute left-0 right-0 top-full mt-2 bg-background/95 backdrop-blur-xl border border-white/10 rounded-lg p-4 z-50">
+                        <div class="flex flex-col space-y-4">
+                            <ng-container *ngFor="let item of navItems">
+                                <a [routerLink]="[item.toLowerCase()]" class="text-sm text-white/70 hover:text-white py-2 transition-colors" (click)="toggleMobileMenu()">
+                                    {{item}}
+                                </a>
+                            </ng-container>
+                            <button class="relative overflow-hidden group bg-white/5 border border-white/10 hover:bg-white/10 text-white px-4 py-2 rounded-md">
+                                <span class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity"></span>
+                                Start Free Trial
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-24">
+        <!-- Hero Section -->
+        <section class="container mx-auto px-4 py-20 md:py-32">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+                        <i-lucide [img]="sparkles" class="size-4 text-cyan-400 lucide-sparkles"></i-lucide>
+                        <span class="text-sm text-white/70">AI-Powered Healthcare</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold">
+                        <span class="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                            The Future of
+                        </span>
+                        <br />
+                        Healthcare is Here
+                    </h1>
+                    <p class="text-xl text-white/70">
+                        Experience medical consultations powered by advanced AI. Get instant insights, 24/7 support, and personalized care recommendations.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="relative group h-12 px-8 bg-gradient-to-r from-cyan-500 to-purple-500 hover:opacity-90 rounded-md">
+                            <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></span>
+                            Start Consultation
+                            <i class="ml-2 size-4 lucide-chevron-right"></i>
+                        </button>
+                        <button class="h-12 px-8 border-white/10 bg-white/5 hover:bg-white/10 text-white rounded-md">
+                            Watch Demo
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="flex -space-x-2">
+                            <ng-container *ngFor="let _ of [1,2,3,4]">
+                                <div class="size-8 rounded-full border-2 border-background bg-gradient-to-r from-cyan-500 to-purple-500"></div>
+                            </ng-container>
+                        </div>
+                        <div class="text-sm text-white/70">
+                            <span class="text-white font-bold">10,000+</span> patients helped
+                        </div>
+                    </div>
+                </div>
+                <div class="relative aspect-square">
+                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+                    <div class="relative z-10 size-full">
+                        <div class="absolute inset-0 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden group">
+                            <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <img src="assets/Images/4df24e65-58eb-44e0-8aa3-ca4bbde87e0d.png" alt="AI Doctor Hologram" class="size-full object-cover p-8" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="container mx-auto px-4 py-20">
+            <div class="text-center space-y-4 mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Cutting-edge AI Features
+                </h2>
+                <p class="text-lg text-white/70 max-w-2xl mx-auto">
+                    Experience the next generation of healthcare with our advanced AI-powered features
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <ng-container *ngFor="let feature of features">
+                    <div class="group relative rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:bg-white/10 transition-colors">
+                        <div class="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-10 transition-opacity duration-500" [style.background-image]="'linear-gradient(to right, #22d3ee, #a855f7)'"></div>
+                        <div class="relative space-y-4">
+                            <div [class]="'size-12 rounded-lg bg-gradient-to-r p-3 ' + feature.gradient">
+                                <lucide-icon [img]="feature.icon" class="size-full text-white"></lucide-icon>
+                            </div>
+                            <h3 class="text-xl font-semibold">{{feature.title}}</h3>
+                            <p class="text-white/70">{{feature.description}}</p>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </section>
+
+        <!-- Chat Demo Section -->
+        <section id="chat-demo" class="container mx-auto px-4 py-20">
+            <div class="max-w-4xl mx-auto">
+                <div class="relative rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 overflow-hidden chat-demo">
+                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10"></div>
+                    <div class="relative space-y-4">
+                        <div class="flex items-center gap-3 pb-4 border-b border-white/10">
+                            <i-lucide [img]="bot" class="size-6 text-cyan-400 lucide-bot"></i-lucide>
+                            <span class="font-semibold">AI Medical Assistant</span>
+                        </div>
+                        <div class="min-h-[200px] space-y-4">
+                            <div class="flex gap-4">
+                                <div class="size-8 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex-shrink-0"></div>
+                                <div class="bg-white/5 rounded-lg rounded-tl-none p-4 max-w-[80%]">
+                                    <p>Hello! I'm your AI Medical Assistant. How can I help you today?</p>
+                                </div>
+                            </div>
+                            <ng-container *ngIf="chatMessage">
+                                <div class="flex gap-4 justify-end">
+                                    <div class="bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg rounded-tr-none p-4 max-w-[80%]">
+                                        <p>{{chatMessage}}</p>
+                                    </div>
+                                    <div class="size-8 rounded-full bg-white/10 flex-shrink-0"></div>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="showAIResponse">
+                                <div class="flex gap-4">
+                                    <div class="size-8 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex-shrink-0"></div>
+                                    <div class="bg-white/5 rounded-lg rounded-tl-none p-4 max-w-[80%]">
+                                        <p>Based on your symptoms, here are some possible causes and recommendations. Would you like me to elaborate on any specific aspect?</p>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <form (ngSubmit)="handleChatSubmit()" class="flex gap-4">
+                            <input [(ngModel)]="chatMessage" name="chatMessage" placeholder="Type your symptoms..." class="flex-1 bg-white/5 border border-white/10 rounded-md px-4 py-2 text-white placeholder:text-white/40" />
+                            <button type="submit" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 hover:opacity-90 rounded-md">
+                                Send
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="container mx-auto px-4 py-20">
+            <div class="text-center space-y-4 mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Trusted by Many
+                </h2>
+                <p class="text-lg text-white/70 max-w-2xl mx-auto">
+                    See what our users say about their experience with MedAI
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <ng-container *ngFor="let testimonial of testimonials">
+                    <div class="group relative rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:bg-white/10 transition-colors">
+                        <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative space-y-4">
+                            <div class="flex gap-1">
+                                <ng-container *ngFor="let star of [1,2,3,4,5]">
+                                    <i-lucide [img]="Star" class="size-5 fill-cyan-400 text-cyan-400 lucide-star"></i-lucide>
+                                </ng-container>
+                            </div>
+                            <p class="text-white/70">{{testimonial.quote}}</p>
+                            <div>
+                                <p class="font-semibold">{{testimonial.author}}</p>
+                                <p class="text-sm text-white/50">{{testimonial.role}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="container mx-auto px-4 py-20">
+            <div class="relative rounded-3xl overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500"></div>
+                <div class="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+                <div class="relative p-8 md:p-12 lg:p-16 text-center space-y-8 cta-section">
+                    <h2 class="text-4xl md:text-5xl font-bold">Start Your AI Healthcare Journey</h2>
+                    <p class="text-xl text-white/70 max-w-2xl mx-auto">
+                        Join thousands of users who trust our AI-powered platform for their health needs
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="h-12 px-8 bg-white text-primary hover:bg-white/90 rounded-md" [routerLink]="['/auth']">
+                            Get Started
+                        </button>
+                        <button class="h-12 px-8 border border-white hover:bg-white/10 text-white rounded-md">
+                            Schedule Demo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-white/5">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <div class="relative size-10">
+                            <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl blur animate-pulse"></div>
+                            <div class="relative size-10 bg-white/5 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/10">
+                                <i-lucide [img]="bot" class="size-6 text-cyan-400 lucide-bot"></i-lucide>
+                            </div>
+                        </div>
+                        <span class="text-xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                            MedAI
+                        </span>
+                    </div>
+                    <p class="text-sm text-white/50">Revolutionizing healthcare with artificial intelligence</p>
+                </div>
+                <ng-container *ngFor="let section of footerSections">
+                    <div class="space-y-4">
+                        <h3 class="font-semibold">{{section.title}}</h3>
+                        <ul class="space-y-2">
+                            <ng-container *ngFor="let link of section.links">
+                                <li>
+                                    <a href="#" class="text-sm text-white/50 hover:text-white transition-colors">
+                                        {{link}}
+                                    </a>
+                                </li>
+                            </ng-container>
+                        </ul>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/50">
+                © {{currentYear}} MedAI. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Help Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full blur opacity-75 group-hover:opacity-100 animate-pulse transition-opacity"></div>
+            <button class="relative size-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                <i-lucide [img]="wandsparkles"  class="size-6 text-cyan-400 lucide-wand2"></i-lucide>
+            </button>
+            <div class="absolute bottom-full right-0 mb-2 w-48 p-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                <p class="text-sm text-center">Need help? Ask our AI Assistant!</p>
+            </div>
+        </div>
+    </div>
+</div>

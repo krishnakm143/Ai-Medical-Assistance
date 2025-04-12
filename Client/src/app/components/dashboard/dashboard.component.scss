@@ -1,0 +1,198 @@
+// Variables
+$background-dark: #020817;
+$cyan-500: #06b6d4;
+$purple-500: #a855f7;
+$white: #ffffff;
+$border-color: rgba(255, 255, 255, 0.1);
+$glass-bg: rgba(255, 255, 255, 0.05);
+
+@use "sass:color";
+
+// Mixins
+@mixin glass-effect {
+  background: $glass-bg;
+  backdrop-filter: blur(12px);
+  border: 1px solid $border-color;
+}
+
+@mixin gradient-text {
+  background: linear-gradient(to right, $cyan-500, $purple-500);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@mixin gradient-border {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(to right, $cyan-500, $purple-500);
+    border-radius: inherit;
+    z-index: -1;
+  }
+}
+
+// Animations
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+// Card Styles
+.health-card {
+  @include glass-effect;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-icon {
+    @include gradient-text;
+    font-size: 1.5rem;
+  }
+}
+
+// Button Styles
+.gradient-button {
+  background: linear-gradient(to right, $cyan-500, $purple-500);
+  color: $white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $white;
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 0.2;
+    }
+  }
+}
+
+// Tab Styles
+.tab-button {
+  &.active {
+    background: linear-gradient(to right, rgba($cyan-500, 0.1), rgba($purple-500, 0.1));
+    border-bottom: 2px solid $cyan-500;
+  }
+
+  &:hover:not(.active) {
+    background: rgba($white, 0.05);
+  }
+}
+
+// Activity Card
+.activity-card {
+  @include glass-effect;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: linear-gradient(to right, rgba($cyan-500, 0.1), rgba($purple-500, 0.1));
+  }
+
+  .activity-icon {
+    animation: pulse 2s infinite;
+  }
+}
+
+// Health Tip Card
+.health-tip {
+  @include glass-effect;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(to right, rgba($cyan-500, 0.1), rgba($purple-500, 0.1));
+  }
+}
+
+// Premium Card
+.premium-card {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, rgba($cyan-500, 0.1), rgba($purple-500, 0.1));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    padding: 1px;
+    border-radius: inherit;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .health-cards-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .tab-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba($white, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, $cyan-500, $purple-500);
+  border-radius: 4px;
+  
+  &:hover {
+    background: linear-gradient(
+      to bottom,
+      color.adjust($cyan-500, $lightness: 10%),
+      color.adjust($purple-500, $lightness: 10%)
+    );
+  }
+} 

@@ -1,0 +1,143 @@
+<div class="auth-container">
+    <!-- Animated background -->
+    <div class="neural-network-bg">
+      <div class="neural-network"></div>
+    </div>
+  
+    <!-- Main card -->
+    <div class="auth-card-wrapper">
+      <!-- AI Assistant Icon -->
+      <div class="ai-assistant">
+        <div class="ai-icon">
+          <div class="ai-icon-inner">
+            <i class="fas fa-brain"></i>
+          </div>
+        </div>
+      </div>
+  
+      <div class="auth-card">
+        <div class="auth-header">
+          <h1>Smart AI. Smarter Health.</h1>
+          <p>Personalized for You</p>
+        </div>
+  
+        <!-- Login/Signup Toggle -->
+        <div class="mode-toggle">
+          <label>Login</label>
+          <div class="toggle-switch">
+            <input 
+              type="checkbox" 
+              [checked]="!isLogin" 
+              (change)="toggleMode()"
+              id="mode-switch"
+            >
+            <label for="mode-switch"></label>
+          </div>
+          <label>Sign Up</label>
+        </div>
+  
+        <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="auth-form">
+          <!-- Name field (shown only in signup mode) -->
+          <div class="form-group" *ngIf="!isLogin" [@slideInOut]>
+            <label for="name">Full Name</label>
+            <div class="input-wrapper">
+              <i class="fas fa-user"></i>
+              <input
+                id="name"
+                type="text"
+                formControlName="name"
+                placeholder="Enter Your Name"
+              >
+            </div>
+          </div>
+  
+          <!-- Email field -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <div class="input-wrapper">
+              <i class="fas fa-envelope"></i>
+              <input
+                id="email"
+                type="email"
+                formControlName="email"
+                placeholder="doctor@hospital.com"
+              >
+            </div>
+            <div class="error-message" *ngIf="authForm.get('email')?.touched && authForm.get('email')?.invalid">
+              Please enter a valid email
+            </div>
+          </div>
+  
+          <!-- Password field -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrapper">
+              <i class="fas fa-lock"></i>
+              <input
+                id="password"
+                type="password"
+                formControlName="password"
+              >
+            </div>
+            <div class="error-message" *ngIf="authForm.get('password')?.touched && authForm.get('password')?.invalid">
+              Password must be at least 6 characters
+            </div>
+          </div>
+  
+          <!-- Biometric and Voice Options
+          <div class="auth-options">
+            <button type="button" class="option-btn">
+              <i class="fas fa-fingerprint"></i>
+              Biometric
+            </button>
+            <button type="button" class="option-btn">
+              <i class="fas fa-microphone"></i>
+              Voice
+            </button>
+          </div> -->
+  
+          <!-- Progress bar -->
+          <div class="progress-bar" *ngIf="loading">
+            <div class="progress" [style.width.%]="progress"></div>
+          </div>
+  
+          <!-- Submit button -->
+          <button 
+            type="submit" 
+            class="submit-btn" 
+            (click)="onSubmit()"
+            [disabled]="loading || authForm.invalid"
+          >
+            {{ isLogin ? 'Login' : 'Sign Up' }}
+          </button>
+  
+          <!-- Social login -->
+          <div class="social-login">
+            <button type="button" class="social-btn" (click)="loginWithGoogle()"  >
+              <i class="fab fa-google"></i>
+              Google
+            </button>
+            <button type="button" class="social-btn" (click)="loginWithApple()" >
+              <i class="fab fa-apple"></i>
+              Apple
+            </button>
+          </div>
+        </form>
+  
+        <!-- Footer -->
+        <div class="auth-footer">
+          <div class="footer-links">
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">AI Ethics</a>
+            <a href="#">Support</a>
+          </div>
+          <p class="trust-badge">
+            Powered by AI • Secure • Encrypted • Always Learning
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
