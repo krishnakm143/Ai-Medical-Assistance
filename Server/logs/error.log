@@ -1,0 +1,84 @@
+[2025-03-28T17:33:53.632Z] [ERROR] [SERVER_ERROR] {"message":"Cannot read properties of undefined (reading 'XSRF-TOKEN')","stack":"TypeError: Cannot read properties of undefined (reading 'XSRF-TOKEN')\n    at setCsrfCookie (D:\\Ai_Medical_Agent\\Server\\middleware\\security.middleware.js:49:19)\n    at Layer.handle [as handle_request] (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:286:9\n    at Function.process_params (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at securityHeaders (D:\\Ai_Medical_Agent\\Server\\middleware\\security.middleware.js:18:3)\n    at Layer.handle [as handle_request] (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:286:9","ip":"::1","url":"/api/ai/config","method":"GET","userId":"unauthenticated","timestamp":"2025-03-28T17:33:53.617Z"}
+[2025-03-28T17:33:53.636Z] ERROR: Cannot read properties of undefined (reading 'XSRF-TOKEN')
+Stack: TypeError: Cannot read properties of undefined (reading 'XSRF-TOKEN')
+    at setCsrfCookie (D:\Ai_Medical_Agent\Server\middleware\security.middleware.js:49:19)
+    at Layer.handle [as handle_request] (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:328:13)
+    at D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:346:12)
+    at next (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:280:10)
+    at securityHeaders (D:\Ai_Medical_Agent\Server\middleware\security.middleware.js:18:3)
+    at Layer.handle [as handle_request] (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:328:13)
+    at D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:286:9
+Request: GET /api/ai/config
+[2025-03-28T17:33:53.724Z] [ERROR] [SERVER_ERROR] {"message":"Cannot read properties of undefined (reading 'XSRF-TOKEN')","stack":"TypeError: Cannot read properties of undefined (reading 'XSRF-TOKEN')\n    at setCsrfCookie (D:\\Ai_Medical_Agent\\Server\\middleware\\security.middleware.js:49:19)\n    at Layer.handle [as handle_request] (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:286:9\n    at Function.process_params (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at securityHeaders (D:\\Ai_Medical_Agent\\Server\\middleware\\security.middleware.js:18:3)\n    at Layer.handle [as handle_request] (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:286:9","ip":"::1","url":"/api/users/VYnUQhXVYsesx6UU7tlQpHHJyKa2/chats","method":"GET","userId":"unauthenticated","timestamp":"2025-03-28T17:33:53.716Z"}
+[2025-03-28T17:33:53.730Z] ERROR: Cannot read properties of undefined (reading 'XSRF-TOKEN')
+Stack: TypeError: Cannot read properties of undefined (reading 'XSRF-TOKEN')
+    at setCsrfCookie (D:\Ai_Medical_Agent\Server\middleware\security.middleware.js:49:19)
+    at Layer.handle [as handle_request] (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:328:13)
+    at D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:346:12)
+    at next (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:280:10)
+    at securityHeaders (D:\Ai_Medical_Agent\Server\middleware\security.middleware.js:18:3)
+    at Layer.handle [as handle_request] (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:328:13)
+    at D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:286:9
+Request: GET /api/users/VYnUQhXVYsesx6UU7tlQpHHJyKa2/chats
+[2025-03-28T17:34:39.398Z] [ERROR] [SERVER_ERROR] {"message":"Cannot read properties of undefined (reading 'XSRF-TOKEN')","stack":"TypeError: Cannot read properties of undefined (reading 'XSRF-TOKEN')\n    at setCsrfCookie (D:\\Ai_Medical_Agent\\Server\\middleware\\security.middleware.js:49:19)\n    at Layer.handle [as handle_request] (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:286:9\n    at Function.process_params (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at securityHeaders (D:\\Ai_Medical_Agent\\Server\\middleware\\security.middleware.js:18:3)\n    at Layer.handle [as handle_request] (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:286:9","ip":"::1","url":"/api/ai/config","method":"GET","userId":"unauthenticated","timestamp":"2025-03-28T17:34:39.390Z"}
+[2025-03-28T17:34:39.400Z] ERROR: Cannot read properties of undefined (reading 'XSRF-TOKEN')
+Stack: TypeError: Cannot read properties of undefined (reading 'XSRF-TOKEN')
+    at setCsrfCookie (D:\Ai_Medical_Agent\Server\middleware\security.middleware.js:49:19)
+    at Layer.handle [as handle_request] (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:328:13)
+    at D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:346:12)
+    at next (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:280:10)
+    at securityHeaders (D:\Ai_Medical_Agent\Server\middleware\security.middleware.js:18:3)
+    at Layer.handle [as handle_request] (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:328:13)
+    at D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:286:9
+Request: GET /api/ai/config
+[2025-03-28T17:34:39.423Z] [ERROR] [SERVER_ERROR] {"message":"Cannot read properties of undefined (reading 'XSRF-TOKEN')","stack":"TypeError: Cannot read properties of undefined (reading 'XSRF-TOKEN')\n    at setCsrfCookie (D:\\Ai_Medical_Agent\\Server\\middleware\\security.middleware.js:49:19)\n    at Layer.handle [as handle_request] (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:286:9\n    at Function.process_params (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at securityHeaders (D:\\Ai_Medical_Agent\\Server\\middleware\\security.middleware.js:18:3)\n    at Layer.handle [as handle_request] (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:286:9","ip":"::1","url":"/api/users/VYnUQhXVYsesx6UU7tlQpHHJyKa2/chats","method":"GET","userId":"unauthenticated","timestamp":"2025-03-28T17:34:39.422Z"}
+[2025-03-28T17:34:39.423Z] ERROR: Cannot read properties of undefined (reading 'XSRF-TOKEN')
+Stack: TypeError: Cannot read properties of undefined (reading 'XSRF-TOKEN')
+    at setCsrfCookie (D:\Ai_Medical_Agent\Server\middleware\security.middleware.js:49:19)
+    at Layer.handle [as handle_request] (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:328:13)
+    at D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:346:12)
+    at next (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:280:10)
+    at securityHeaders (D:\Ai_Medical_Agent\Server\middleware\security.middleware.js:18:3)
+    at Layer.handle [as handle_request] (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:328:13)
+    at D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:286:9
+Request: GET /api/users/VYnUQhXVYsesx6UU7tlQpHHJyKa2/chats
+[2025-03-28T17:34:43.428Z] [ERROR] [SERVER_ERROR] {"message":"Cannot read properties of undefined (reading 'XSRF-TOKEN')","stack":"TypeError: Cannot read properties of undefined (reading 'XSRF-TOKEN')\n    at setCsrfCookie (D:\\Ai_Medical_Agent\\Server\\middleware\\security.middleware.js:49:19)\n    at Layer.handle [as handle_request] (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:286:9\n    at Function.process_params (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at securityHeaders (D:\\Ai_Medical_Agent\\Server\\middleware\\security.middleware.js:18:3)\n    at Layer.handle [as handle_request] (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:286:9","ip":"::1","url":"/api/chats","method":"OPTIONS","userId":"unauthenticated","timestamp":"2025-03-28T17:34:43.427Z"}
+[2025-03-28T17:34:43.430Z] ERROR: Cannot read properties of undefined (reading 'XSRF-TOKEN')
+Stack: TypeError: Cannot read properties of undefined (reading 'XSRF-TOKEN')
+    at setCsrfCookie (D:\Ai_Medical_Agent\Server\middleware\security.middleware.js:49:19)
+    at Layer.handle [as handle_request] (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:328:13)
+    at D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:346:12)
+    at next (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:280:10)
+    at securityHeaders (D:\Ai_Medical_Agent\Server\middleware\security.middleware.js:18:3)
+    at Layer.handle [as handle_request] (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:328:13)
+    at D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:286:9
+Request: OPTIONS /api/chats
+[2025-03-28T17:34:43.521Z] [ERROR] [SERVER_ERROR] {"message":"Cannot read properties of undefined (reading 'XSRF-TOKEN')","stack":"TypeError: Cannot read properties of undefined (reading 'XSRF-TOKEN')\n    at setCsrfCookie (D:\\Ai_Medical_Agent\\Server\\middleware\\security.middleware.js:49:19)\n    at Layer.handle [as handle_request] (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:286:9\n    at Function.process_params (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at securityHeaders (D:\\Ai_Medical_Agent\\Server\\middleware\\security.middleware.js:18:3)\n    at Layer.handle [as handle_request] (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\Ai_Medical_Agent\\Server\\node_modules\\express\\lib\\router\\index.js:286:9","ip":"::1","url":"/api/ai/chat","method":"OPTIONS","userId":"unauthenticated","timestamp":"2025-03-28T17:34:43.520Z"}
+[2025-03-28T17:34:43.522Z] ERROR: Cannot read properties of undefined (reading 'XSRF-TOKEN')
+Stack: TypeError: Cannot read properties of undefined (reading 'XSRF-TOKEN')
+    at setCsrfCookie (D:\Ai_Medical_Agent\Server\middleware\security.middleware.js:49:19)
+    at Layer.handle [as handle_request] (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:328:13)
+    at D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:346:12)
+    at next (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:280:10)
+    at securityHeaders (D:\Ai_Medical_Agent\Server\middleware\security.middleware.js:18:3)
+    at Layer.handle [as handle_request] (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:328:13)
+    at D:\Ai_Medical_Agent\Server\node_modules\express\lib\router\index.js:286:9
+Request: OPTIONS /api/ai/chat
